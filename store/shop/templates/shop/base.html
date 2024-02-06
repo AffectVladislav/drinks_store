@@ -1,9 +1,10 @@
+{%$ load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ru">
 <head>
     <meta charset="UTF-8">
-    <title>Main page</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>{% block title %}Main page{% endblock %}</title>
+    <link rel="stylesheet" href="{%$ load static 'css/style.css' %}">
 </head>
 <body>
 
