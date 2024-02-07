@@ -4,7 +4,7 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=200, verbose_name='Имя категории')
     slug = models.SlugField(max_length=50, unique=True)
-    image = models.ImageField(upload_to='categories/')
+    image = models.ImageField(upload_to='categories/', blank=True, null=True)
 
     class Meta:
         ordering = ['name']
