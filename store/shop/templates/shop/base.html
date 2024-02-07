@@ -1,10 +1,10 @@
-{%$ load static %}
 <!DOCTYPE html>
+{% load static %}
 <html lang="en-ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Main page{% endblock %}</title>
-    <link rel="stylesheet" href="{%$ load static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
@@ -32,19 +32,19 @@
             </div>
 
             <a href="#" class="logo">
-                <img src="image/logo/coffee_logo.png" alt="coffee_logo">
+                <img src="{% static 'image/logo/coffee_logo.png' %}" alt="coffee_logo">
             </a>
 
             <div class="header__block right">
                 <div class="header__actions">
                     <a href="#" class="header__link">
-                        <img src="image/user.svg" alt="user_img">
+                        <img src="{% static 'image/user.svg' %}" alt="user_img">
                     </a>
                     <a href="#">
-                        <img src="image/favorite.svg" alt="favorite_img">
+                        <img src="{% static 'image/favorite.svg' %}" alt="favorite_img">
                     </a>
                     <a href="#">
-                        <img src="image/cart.svg" alt="cart_img">
+                        <img src="{% static 'image/cart.svg' %}" alt="cart_img">
                         <span class="header__link-event"></span>
                     </a>
                 </div>
@@ -52,15 +52,14 @@
         </div>
     </div>
 </header>   <!-- /.header-->
-
-<div style="padding-bottom: 50vh;"></div>
-
+{% block content %}
+{% endblock %}
 <footer class="footer">
     <div class="container">
         <div class="footer__wrapper">
             <div class="footer__block">
                 <a class="footer__logo" href="#">
-                    <img src="image/logo/logo_footer.png" alt="logo_imape_button">
+                    <img src="{% static 'image/logo/logo_footer.png' %}" alt="logo_image_button">
                 </a>
             </div>
 

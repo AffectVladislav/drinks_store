@@ -1,7 +1,9 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
-from django.template.loader import render_to_string
+from django.shortcuts import render, get_object_or_404
+from .models import Category, Product
+from .paginator import paginator
 
-def index(request):
-    t = render_to_string('templates/shop/base.html')
-    return HttpResponse(t)
+def store(request):
+    products = Product.objects.filter(available=True)
+    context = {'page_obj': paginator(request, products, 6)}
+    return render(request, 'shop/product/main_page.html', context)
