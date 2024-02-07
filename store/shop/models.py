@@ -3,7 +3,8 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=200, verbose_name='Имя категории')
-    slug = models.SlugField(max_length=50, unique=True, verbose_name='Слизь к категории')
+    slug = models.SlugField(max_length=50, unique=True)
+    image = models.ImageField(upload_to='categories/')
 
     class Meta:
         ordering = ['name']
@@ -20,7 +21,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, verbose_name='Название продукта')
     description = models.TextField(blank=True, verbose_name='Описание продукта')
     slug = models.SlugField(max_length=50)
-    image = models.ImageField(blank=True, upload_to='product', verbose_name='Изображение')
+    image = models.ImageField(blank=True, upload_to='products/', verbose_name='Изображение')
     available = models.BooleanField(default=True, verbose_name='В наличии')
     pub_date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -34,6 +35,8 @@ class Product(models.Model):
             models.Index(fields=['name']),
             models.Index(fields=['-pub_date']),
         ]
+        verbose_name = 'Продукт'
+        verbose_name_plural = 'Продукты'
 
     def __str__(self):
         return self.name

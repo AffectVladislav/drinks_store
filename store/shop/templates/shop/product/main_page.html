@@ -1,58 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Main page</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+{% extends "shop/base.html" %}
 
-<header class="header">
-    <div class="header__line">
-        <div class="container">
-            <div class="header__line-wrappper">
-                <div class="header__lng">
-                    <a href="#">Ru</a>
-                    <a href="#" class="active">En</a>
-                </div>
-                <a  href="#" class="header__phone">+7-999-999-99-99</a>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="header__wrapper">
-            <div class="header__block">
-                <nav class="nav">
-                    <a href="#" class="nav__link active">Home</a>
-                    <a href="#" class="nav__link">About</a>
-                    <a href="#" class="nav__link">Menu</a>
-                    <a href="#" class="nav__link">Reservation</a>
-                </nav>
-            </div>
-
-            <a href="#" class="logo">
-                <img src="image/logo/coffee_logo.png" alt="coffee_logo">
-            </a>
-
-            <div class="header__block right">
-                <div class="header__actions">
-                    <a href="#" class="header__link">
-                        <img src="image/user.svg" alt="user_img">
-                    </a>
-                    <a href="#">
-                        <img src="image/favorite.svg" alt="favorite_img">
-                    </a>
-                    <a href="#">
-                        <img src="image/cart.svg" alt="cart_img">
-                        <span class="header__link-event"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>   <!-- /.header-->
-
-<div class="intro" style="background-image: url('image/bg/coffee_img.jpg');">
+{% block content %}
+{% load static %}
+<div class="intro" style="background-image: url('./store/shop/static/image/bg/coffee_img.jpg');">
     <div class="container">
         <div class="intro__wrapper">
             <div class="intro__block">
@@ -74,7 +24,7 @@
     <div class="container">
         <div class="info__block">
             <div class="info__img-wrapper">
-                <img class="image__info" src="image/coffee_info.png" alt="coffee_info_img">
+                <img class="image__info" src="{% static 'image/coffee_info.png' %}" alt="coffee_info_img">
             </div>
             <div class="info__item">
                 <div class="info__titel">
@@ -96,7 +46,7 @@
             <div class="products__block">
                 <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
                 <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_1.png" alt="products__img">
+                    <img class="products__img" src="{% static 'image/products/product_1.png' %}" alt="products__img">
     
                     <h3 class="products__name">Lavazza coffee</h3>
     
@@ -242,34 +192,4 @@
         </div>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <div class="footer__wrapper">
-            <div class="footer__block">
-                <a class="footer__logo" href="#">
-                    <img src="image/logo/logo_footer.png" alt="logo_imape_button">
-                </a>
-            </div>
-
-            <div class="footer__block">
-                <nav class="nav nav-footer">
-                    <a href="#" class="nav__link">Home</a>
-                    <a href="#" class="nav__link">About</a>
-                    <a href="#" class="nav__link">Menu</a>
-                    <a href="#" class="nav__link">Reservation</a>
-                </nav>
-            </div>
-
-            <div class="footer__block">
-                <nav class="nav nav-footer">
-                    <a href="#" class="nav__link">Contacts</a>
-                    <a href="#" class="nav__link">Privacy policy</a>
-                </nav>
-            </div>
-        </div>
-    </div>
-</footer>
-
-</body>
-</html>
+{% endblock %}
