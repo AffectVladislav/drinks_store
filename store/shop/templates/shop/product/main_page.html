@@ -1,7 +1,10 @@
 {% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+{% endblock %}
 
 {% block content %}
-{% load static %}
 <div class="intro" style="background-image: url('../../../static/img/bg/coffee_img.jpg');">
     <div class="container">
         <div class="intro__wrapper">
@@ -24,11 +27,11 @@
     <div class="container">
         <div class="info__block">
             <div class="info__img-wrapper">
-                <img class="image__info" src="{% static 'image/coffee_info.png' %}" alt="coffee_info_img">
+                <img class="image__info" src="{% static 'img/coffee_info.png' %}" alt="coffee_info_img">
             </div>
             <div class="info__item">
                 <div class="info__titel">
-                    <h1>Rosted Coffe</h1>
+                    <h1>Roasted Coffe</h1>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
                 </div>
             </div>
@@ -41,116 +44,29 @@
         <h2 class="block__titel">
             catalog
         </h2>
-
         <div class="products__wrapper">
+            {% for product in page_obj %}
             <div class="products__block">
                 <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
                 <a class="products__item" href="#">
-                    <img class="products__img" src="{% static 'image/products/product_1.png' %}" alt="products__img">
-    
-                    <h3 class="products__name">Lavazza coffee</h3>
-    
+                    <img class="products__img" src="{% if product.image %}{{ product.image.url }}
+                    {% else %}{% static 'img/no_image.png' %}{% endif %}" alt="products__img">
+                    <h3 class="products__name">{{ product.name }}</h3>
                     <div class="products__footer">
                         <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
+                            ${{ product.price }}   <!-- Модель цены -->
+                        <del>
+                            {% if product.old_price %}${{ product.old_price }}
+                            {% else %} {% endif %}
+                        </del>   <!-- Модель старой цены -->
                         </div>
                         <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
+                            <img src="{% static 'img/favorite.svg' %}" alt="favorite_img">
                         </button>
                     </div>
                 </a>
             </div>
-            <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_2.png" alt="products__img">
-    
-                    <h3 class="products__name">Lavazza coffee</h3>
-    
-                    <div class="products__footer">
-                        <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
-                        </div>
-                        <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
-                        </button>
-                    </div>
-                </a>
-            </div>
-            <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_1.png" alt="products__img">
-    
-                    <h3 class="products__name">Lavazza coffee</h3>
-    
-                    <div class="products__footer">
-                        <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
-                        </div>
-                        <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
-                        </button>
-                    </div>
-                </a>
-            </div>
-            <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_1.png" alt="products__img">
-    
-                    <h3 class="products__name">Lavazza coffee</h3>
-    
-                    <div class="products__footer">
-                        <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
-                        </div>
-                        <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
-                        </button>
-                    </div>
-                </a>
-            </div>
-            <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_2.png" alt="products__img">
-
-                    <h3 class="products__name">Lavazza coffee</h3>
-
-                    <div class="products__footer">
-                        <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
-                        </div>
-                        <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
-                        </button>
-                    </div>
-                </a>
-            </div>
-            <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
-                    <img class="products__img" src="image/products/product_1.png" alt="products__img">
-
-                    <h3 class="products__name">Lavazza coffee</h3>
-
-                    <div class="products__footer">
-                        <div class="products__price">
-                            $19.99
-                        <del>$29.99</del>
-                        </div>
-                        <button type="button" class="products__favorite">
-                            <img src="image/favorite.svg" alt="favorite_img">
-                        </button>
-                    </div>
-                </a>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>  <!-- /.products-->
@@ -163,26 +79,7 @@
         <div class="news__wrapper">
             <div class="news__block">
                 <a class="news__item" href="#">
-                    <img class="news__img" src="image/news/new_1.png" alt="new_image_1">
-                    <div class="news__content">
-                        <h3>Lavazza coffee</h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>    
-                    </div>
-               </a>
-            </div>
-
-            <div class="news__block">
-                <a class="news__item" href="">
-                    <img class="news__img" src="image/news/new_2.png" alt="new_image_1">
-                    <div class="news__content">
-                        <h3>Lavazza coffee</h3>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>    
-                    </div>
-               </a>
-            </div>
-            <div class="news__block">
-                <a class="news__item" href="">
-                    <img class="news__img" src="image/news/new_3.png" alt="new_image_1">
+                    <img class="news__img" src="{% static 'img/news/new_1.png' %}" alt="new_image_1">
                     <div class="news__content">
                         <h3>Lavazza coffee</h3>
                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>    
