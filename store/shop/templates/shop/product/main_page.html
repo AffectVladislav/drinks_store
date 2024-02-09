@@ -47,18 +47,17 @@
         <div class="products__wrapper">
             {% for product in page_obj %}
             <div class="products__block">
-                <!-- ССЫЛКУ НЕ ЗАБУДСЬ ПОСТАВИТ -->
-                <a class="products__item" href="#">
+                <a class="products__item" href="{{ product.get_absolute_url }}">
                     <img class="products__img" src="{% if product.image %}{{ product.image.url }}
                     {% else %}{% static 'img/no_image.png' %}{% endif %}" alt="products__img">
                     <h3 class="products__name">{{ product.name }}</h3>
                     <div class="products__footer">
                         <div class="products__price">
-                            ${{ product.price }}   <!-- Модель цены -->
+                            ${{ product.price }}
                         <del>
                             {% if product.old_price %}${{ product.old_price }}
                             {% else %} {% endif %}
-                        </del>   <!-- Модель старой цены -->
+                        </del>
                         </div>
                         <button type="button" class="products__favorite">
                             <img src="{% static 'img/favorite.svg' %}" alt="favorite_img">
