@@ -109,7 +109,7 @@ img {
     border-bottom: 1px solid #32323D;
 }
 
-.header__line-wrappper {
+.header__line-wrapper {
     height: 30px;
     display: flex;
     align-items: center;
