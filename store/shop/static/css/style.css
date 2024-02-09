@@ -529,6 +529,11 @@ img {
     border-radius: 10px;
 }
 
+.product__item p {
+    font-size: 18px;
+    line-height: 1.2;
+}
+
 .product__item ul {
     color: #DFDFDF;
     margin: 0;
