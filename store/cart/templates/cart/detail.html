@@ -1,0 +1,63 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+ Your shopping cart
+{% endblock %}
+
+{% block content %}
+<div class="checkout">
+    <div class="container">
+        <div class="cart__shopping">
+            <h1>cart</h1>
+            <div class="checkout__wrapper">
+                <div class="checkout__block">
+                    <div class="checkout__table">
+                        <img class="checkout__img" src="image/products/product_1.png" alt="">
+                        <div class="checkout__table-item">
+                            <h3>Lavazza Crema E Gusto</h3>      <!--Имя продукта-->
+                            <div class="checkout__size">
+                                XL
+                            </div>
+                            <div class="select">
+                                <select name="" id="">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="checkout__actions">
+                            <a href="#" class="checkout__remove">
+                                <img src="image/delete.svg" alt="">     <!--static-->
+                            </a>
+                            <div class="checkout__price">
+                                $19.99
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block__bay">
+                    <div class="block__info-bay">
+                        <div class="checkout__price">
+                            <div class="checkout__total-row">
+                                <div class="title">Price</div>
+                                <div class="count">$19</div>
+                            </div>
+                            <div class="checkout__total-row">
+                                <div class="title">Deliveri</div>
+                                <div class="count">$10</div>
+                            </div>
+                            <div class="total__price">
+                                <div class="title">Total Price</div>
+                                <div class="count">$29</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-main btn-full" type="submit" >checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- /.checkout-->
+% endblock %
