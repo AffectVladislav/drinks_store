@@ -6,14 +6,14 @@
 {% endblock %}
 
 {% block content %}
-<div class="products__bay">     <!--Продукт-->
+<div class="products__bay">
     <div class="container">
         <div class="product">
             <div class="block__title">
-                <h1>{{ product.name }}</h1>      <!--Имя продукта сюда-->
+                <h1>{{ product.name }}</h1>
                 <div class="product__wrapper">
                     <div class="product__image">
-                        <div class="product__item">     <!--Картинку по URL сюда-->
+                        <div class="product__item">
                             <img class="product__picture" src="{% if product.image %}{{ product.image.url }}
                             {% else %}{% static 'img/no_image.png' %}{% endif %}" alt="product_picture">
                         </div>
@@ -27,30 +27,9 @@
                                     {% else %} {% endif %}
                                 </del>
                             </div>
-                            <form action="" class="product__form">
-                                <div class="radio__wrapper">
-                                    <div class="radio">
-                                        <input type="radio" class="radio__input" id="radio_1" name="product__size" required>
-                                        <label for="radio_1" class="radio__label">
-                                            L
-                                        </label>
-                                    </div>
-
-                                    <div class="radio">
-                                        <input type="radio" class="radio__input" id="radio_2" name="product__size" required>
-                                        <label for="radio_2" class="radio__label">
-                                            XL
-                                        </label>
-                                    </div>
-
-                                    <div class="radio">
-                                        <input type="radio" class="radio__input" id="radio_3" name="product__size" required>
-                                        <label for="radio_3" class="radio__label">
-                                            XXL
-                                        </label>
-                                    </div>
-                                </div>
-                                <!--Прописать кнопку-->
+                            <form action="{% url 'cart:cart_add' product.id %}" class="product__form" method="post">
+                                {{ cart_product_form }}
+                                {% csrf_token %}
                                 <button class="btn btn-main btn-full" type="submit" >ADd to cart</button>
                             </form>
                         </div>
@@ -100,5 +79,5 @@
         </div>
         <!-- /.Похожие продукты-->
     </div>
-</div>  <!-- /.Продукт-->
+</div>
 {% endblock %}
