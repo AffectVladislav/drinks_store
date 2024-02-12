@@ -43,7 +43,7 @@
                     <a href="#">
                         <img src="{% static 'img/favorite.svg' %}" alt="favorite_img">
                     </a>
-                    <a href="#">
+                    <a href="{% url 'cart:cart_detail' %}">
                         <img src="{% static 'img/cart.svg' %}" alt="cart_img">
                         <span class="header__link-event"></span>
                     </a>
