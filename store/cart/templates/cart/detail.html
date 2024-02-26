@@ -9,7 +9,7 @@
 <div class="checkout">
     <div class="container">
         <div class="cart__shopping">
-            <h1>cart</h1>
+            <h1>Корзина</h1>
             <div class="checkout__wrapper">
                 {% for item in cart %}
                     {% with product=item.product %}
@@ -46,19 +46,19 @@
                     <div class="block__info-bay">
                         <div class="checkout__price">
                             <div class="checkout__total-row">
-                                <div class="title">Price</div>
+                                <div class="title">Цена</div>
                                 <div class="count">${{ item.price }}</div>
                             </div>
                             <div class="checkout__total-row">
-                                <div class="title">Deliveri</div>
+                                <div class="title">Доставка</div>
                                 <div class="count">$10</div>
                             </div>
                             <div class="total__price">
-                                <div class="title">Total Price</div>
+                                <div class="title">Итоговая цена</div>
                                 <div class="count">${{ item.total_price }}</div>
                             </div>
                         </div>
-                        <button class="btn btn-main btn-full" type="submit" >checkout</button>
+                        <button class="btn btn-main btn-full" type="submit" >Оформить заказ</button>
                     </div>
                 </div>
             </div>
