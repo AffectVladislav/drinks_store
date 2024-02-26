@@ -27,10 +27,13 @@
                                     {% else %} {% endif %}
                                 </del>
                             </div>
-                            <form action="{% url 'cart:cart_add' product.id %}" class="product__form" method="post">
+
+                            <form class="product__form" action="{% url 'cart:cart_add' product.id %}" method="post">
+                                <--не отображается на сайте->
                                 {{ cart_product_form }}
                                 {% csrf_token %}
-                                <button class="btn btn-main btn-full" type="submit" >ADd to cart</button>
+                                <--не отображается на сайте->
+                                <button class="btn btn-main btn-full" type="submit" >Add to cart</button>
                             </form>
                         </div>
                     </div>
@@ -39,7 +42,7 @@
                 <div class="product__fotter">
                     <div class="block__title">
                         <h3 class="products__name">
-                            Description
+                            Описание
                         </h3>
                     </div>
                     <div class="product__item">
@@ -50,9 +53,10 @@
         </div>
         <!--Похожие продукты-->
         <h3 class="block__titel">
-            other products
+            Похожие товары
         </h3>
         <div class="products__wrapper">
+            <--не отображается на сайте->
             {% for product in other_product %}
                 <div class="products__block">
                     <a class="products__item" href="{{ product.get_absolute_url }}">
@@ -76,6 +80,7 @@
                     </a>
                 </div>
             {% endfor %}
+            <--не отображается на сайте->
         </div>
         <!-- /.Похожие продукты-->
     </div>
